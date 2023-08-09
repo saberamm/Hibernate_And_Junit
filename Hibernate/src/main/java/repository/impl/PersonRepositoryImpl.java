@@ -19,6 +19,6 @@ public class PersonRepositoryImpl extends BaseRepositoryImpl<Person, Long> imple
     @Override
     public Person findPersonByUsername(String username) {
         return getEntityManager().createQuery("from " + getEntityClass().getSimpleName() +" where username= :uname", getEntityClass())
-                .setParameter("uname", username).getSingleResult();
+                .setParameter("uname", username).getResultStream().findFirst().orElse(null);
     }
 }

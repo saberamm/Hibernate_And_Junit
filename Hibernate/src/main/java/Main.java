@@ -24,7 +24,7 @@ public class Main {
 
         //System.out.println(ApplicationContext.getPersonService().findAll());
 
-        //System.out.println(ApplicationContext.getPersonService().findPersonByUsername("oo"));
+        //System.out.println(ApplicationContext.getPersonService().findPersonByUsername("all"));
 
         //System.out.println(ApplicationContext.getPersonService().isContainById(1L));
 
