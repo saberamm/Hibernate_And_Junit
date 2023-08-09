@@ -6,4 +6,5 @@ import entity.dto.SimplePerson;
 
 public interface PersonService extends BaseService<Person, Long> {
     SimplePerson findPersonByUsername(String username);
+    Person signUp (String firstname,String lastname);
 }

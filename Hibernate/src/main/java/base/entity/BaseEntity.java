@@ -1,16 +1,13 @@
 package base.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
 @MappedSuperclass
 public class BaseEntity<ID extends Serializable> implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private ID id;
 
     public ID getId() {

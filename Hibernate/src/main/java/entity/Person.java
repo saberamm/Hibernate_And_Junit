@@ -1,9 +1,8 @@
 package entity;
 
 import base.entity.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +10,7 @@ import java.time.LocalDate;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "person_table")
 public class Person extends BaseEntity<Long> {
     @Max(value = 50, message = "Name should not be greater than 50")
@@ -38,6 +38,11 @@ public class Person extends BaseEntity<Long> {
         this.username = username;
         this.password = password;
         this.birthDate = birthDate;
+    }
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
