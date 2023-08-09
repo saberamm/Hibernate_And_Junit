@@ -1,28 +1,16 @@
 package entity.dto;
-
-
 import java.time.LocalDate;
 
 public class SimplePerson {
-    private String firstname;
 
-    private String lastname;
+    protected String firstname;
 
-    private String username;
-
-    private LocalDate birthDate;
-
-    public SimplePerson(String firstname, String lastname, String username, LocalDate birthDate) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.username = username;
-        this.birthDate = birthDate;
-    }
+    protected String lastname;
+    protected String username;
+    protected LocalDate birthDate;
 
     public SimplePerson() {
-
     }
-
     public String getFirstname() {
         return firstname;
     }

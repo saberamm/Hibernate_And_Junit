@@ -15,9 +15,4 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl<Student, Long> imp
         return Student.class;
     }
 
-    @Override
-    public Student findStudentByUsername(String username) {
-        return getEntityManager().createQuery("from " + getEntityClass().getSimpleName() +" where username= :uname", getEntityClass())
-                .setParameter("uname", username).getSingleResult();
-    }
 }

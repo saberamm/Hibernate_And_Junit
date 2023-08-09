@@ -15,19 +15,19 @@ import java.time.LocalDate;
 public class Person extends BaseEntity<Long> {
     @Max(value = 50, message = "Name should not be greater than 50")
     @NotNull(message = "Name cannot be null")
-    private String firstName;
+    protected String firstName;
     @Max(value = 50, message = "Lastname should not be greater than 50")
     @NotNull(message = "Lastname cannot be null")
-    private String lastName;
+    protected String lastName;
     @Max(value = 50, message = "Username should not be greater than 50")
     @NotNull(message = "Username cannot be null")
     @Column(unique = true)
-    private String username;
+    protected String username;
     @Size(min = 8, max = 50, message = "Password must be between 8 and 50 characters")
     @NotNull(message = "Password cannot be null")
-    private String password;
+    protected String password;
     @NotNull(message = "BirthDate cannot be null")
-    private LocalDate birthDate;
+    protected LocalDate birthDate;
 
     public Person() {
     }
@@ -93,6 +93,7 @@ public class Person extends BaseEntity<Long> {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", birthDate=" + birthDate +
+                ", id=" + id +
                 '}';
     }
 }

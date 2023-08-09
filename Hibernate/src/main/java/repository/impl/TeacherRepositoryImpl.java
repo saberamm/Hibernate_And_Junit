@@ -15,9 +15,4 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl<Teacher, Long> imp
         return Teacher.class;
     }
 
-    @Override
-    public Teacher findTeacherByUsername(String username) {
-        return getEntityManager().createQuery("from " + getEntityClass().getSimpleName() +" where username= :uname", getEntityClass())
-                .setParameter("uname", username).getSingleResult();
-    }
 }

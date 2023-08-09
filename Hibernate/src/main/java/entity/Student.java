@@ -1,4 +1,5 @@
 package entity;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
@@ -6,33 +7,27 @@ import jakarta.persistence.Table;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "student_table")
 public class Student extends Person {
-    @NotNull(message = "studentId cannot be null")
-    long studentId;
+    @NotNull(message = "studentNumber cannot be null")
+    protected long studentNumber;
     @NotNull(message = "fieldOfStudy cannot be null")
-    String fieldOfStudy;
+    protected String fieldOfStudy;
     @NotNull(message = "enteringYear cannot be null")
-    LocalDate enteringYear;
+    protected LocalDate enteringYear;
 
-    public Student(long studentId, String fieldOfStudy, LocalDate enteringYear) {
-        this.studentId = studentId;
+    public Student(long studentNumber, String fieldOfStudy, LocalDate enteringYear) {
+        this.studentNumber = studentNumber;
         this.fieldOfStudy = fieldOfStudy;
         this.enteringYear = enteringYear;
     }
 
-    public Student(String firstName, String lastName, String username, String password, LocalDate birthDate, long studentId, String fieldOfStudy, LocalDate enteringYear) {
+    public Student(String firstName, String lastName, String username, String password, LocalDate birthDate, long studentNumber, String fieldOfStudy, LocalDate enteringYear) {
         super(firstName, lastName, username, password, birthDate);
-        this.studentId = studentId;
-        this.fieldOfStudy = fieldOfStudy;
-        this.enteringYear = enteringYear;
-    }
-
-    public Student(String firstName, String lastName, long studentId, String fieldOfStudy, LocalDate enteringYear) {
-        super(firstName, lastName);
-        this.studentId = studentId;
+        this.studentNumber = studentNumber;
         this.fieldOfStudy = fieldOfStudy;
         this.enteringYear = enteringYear;
     }
@@ -40,20 +35,16 @@ public class Student extends Person {
     public Student() {
     }
 
-    public Student(String firstName, String lastName, String username, String password, LocalDate birthDate) {
-        super(firstName, lastName, username, password, birthDate);
-    }
-
     public Student(String firstName, String lastName) {
         super(firstName, lastName);
     }
 
-    public long getStudentId() {
-        return studentId;
+    public long getStudentNumber() {
+        return studentNumber;
     }
 
-    public void setStudentId(long studentId) {
-        this.studentId = studentId;
+    public void setStudentNumber(long studentNumber) {
+        this.studentNumber = studentNumber;
     }
 
     public String getFieldOfStudy() {
@@ -75,9 +66,15 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
+                "studentNumber=" + studentNumber +
                 ", fieldOfStudy='" + fieldOfStudy + '\'' +
                 ", enteringYear=" + enteringYear +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", birthDate=" + birthDate +
+                ", id=" + id +
                 '}';
     }
 }

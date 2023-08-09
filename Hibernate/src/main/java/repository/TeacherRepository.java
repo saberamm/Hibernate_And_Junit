@@ -4,5 +4,4 @@ import base.repository.BaseRepository;
 import entity.Teacher;
 
 public interface TeacherRepository extends BaseRepository<Teacher, Long> {
-    Teacher findTeacherByUsername(String username);
 }

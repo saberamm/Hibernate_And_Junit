@@ -43,7 +43,9 @@ public class BaseServiceImpl<E extends BaseEntity<ID>, ID extends Serializable, 
 
     @Override
     public E findById(ID id) {
-        return repository.findById(id);
+        E e = repository.findById(id);
+        e.setId(id);
+        return e;
     }
 
     @Override

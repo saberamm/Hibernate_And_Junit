@@ -4,6 +4,7 @@ import base.service.impl.BaseServiceImpl;
 import entity.Teacher;
 import repository.TeacherRepository;
 import service.TeacherService;
+import util.ApplicationContext;
 
 public class TeacherServiceImpl extends BaseServiceImpl<Teacher, Long, TeacherRepository> implements TeacherService {
     public TeacherServiceImpl(TeacherRepository repository) {
@@ -12,6 +13,7 @@ public class TeacherServiceImpl extends BaseServiceImpl<Teacher, Long, TeacherRe
 
     @Override
     public Teacher signUp(String firstname, String lastname) {
-        return null;
+        Teacher teacher = new Teacher(firstname, lastname);
+        return ApplicationContext.getTeacherService().save(teacher);
     }
 }

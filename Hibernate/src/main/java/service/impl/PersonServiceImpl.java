@@ -4,7 +4,6 @@ import base.service.impl.BaseServiceImpl;
 import entity.Person;
 import entity.dto.SimplePerson;
 import repository.PersonRepository;
-import repository.impl.PersonRepositoryImpl;
 import service.PersonService;
 import dto.DtoMapper;
 import util.ApplicationContext;

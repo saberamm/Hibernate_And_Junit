@@ -6,45 +6,37 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "teacher_table")
 public class Teacher extends Person{
-    long teacherId;
-    String degree;
-    long salary;
-    TeacherRate teacherRate;
+    @NotNull(message = "teacherNumber cannot be null")
+    protected long teacherNumber;
+    @NotNull(message = "degree cannot be null")
+    protected String degree;
+    @NotNull(message = "salary cannot be null")
+    protected long salary;
+    @NotNull(message = "teacherRate cannot be null")
+    protected TeacherRate teacherRate;
 
-    public Teacher(long teacherId, String degree, long salary, TeacherRate teacherRate) {
-        this.teacherId = teacherId;
+    public Teacher(long teacherNumber, String degree, long salary, TeacherRate teacherRate) {
+        this.teacherNumber = teacherNumber;
         this.degree = degree;
         this.salary = salary;
         this.teacherRate = teacherRate;
     }
 
-    public Teacher(String firstName, String lastName, String username, String password, LocalDate birthDate, long teacherId, String degree, long salary, TeacherRate teacherRate) {
+    public Teacher(String firstName, String lastName, String username, String password, LocalDate birthDate, long teacherNumber, String degree, long salary, TeacherRate teacherRate) {
         super(firstName, lastName, username, password, birthDate);
-        this.teacherId = teacherId;
-        this.degree = degree;
-        this.salary = salary;
-        this.teacherRate = teacherRate;
-    }
-
-    public Teacher(String firstName, String lastName, long teacherId, String degree, long salary, TeacherRate teacherRate) {
-        super(firstName, lastName);
-        this.teacherId = teacherId;
+        this.teacherNumber = teacherNumber;
         this.degree = degree;
         this.salary = salary;
         this.teacherRate = teacherRate;
     }
 
     public Teacher() {
-
-    }
-
-    public Teacher(String firstName, String lastName, String username, String password, LocalDate birthDate) {
-        super(firstName, lastName, username, password, birthDate);
     }
 
     public Teacher(String firstName, String lastName) {
@@ -52,11 +44,11 @@ public class Teacher extends Person{
     }
 
     public long getTeacherId() {
-        return teacherId;
+        return teacherNumber;
     }
 
-    public void setTeacherId(long teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacherId(long teacherNumber) {
+        this.teacherNumber = teacherNumber;
     }
 
     public String getDegree() {
@@ -86,10 +78,16 @@ public class Teacher extends Person{
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherId=" + teacherId +
+                "teacherNumber=" + teacherNumber +
                 ", degree='" + degree + '\'' +
                 ", salary=" + salary +
                 ", teacherRate=" + teacherRate +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", birthDate=" + birthDate +
+                ", id=" + id +
                 '}';
     }
 }
