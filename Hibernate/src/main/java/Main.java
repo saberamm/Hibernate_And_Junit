@@ -45,7 +45,7 @@ public class Main {
 
         //ApplicationContext.getStudentService().save(student);
 
-        //ApplicationContext.getStudentService().signUp("shahram","salami");
+        //ApplicationContext.getStudentService().signUp("shahram","salami",9L);
 
         //System.out.println(ApplicationContext.getStudentService().findById(1L));
 
@@ -70,7 +70,7 @@ public class Main {
 
         //ApplicationContext.getTeacherService().save(teacher);
 
-        //ApplicationContext.getTeacherService().signUp("farhad","shams");
+        //ApplicationContext.getTeacherService().signUp("farhad","shams",TeacherRate.ADVANCE);
 
         //System.out.println(ApplicationContext.getTeacherService().findById(52L));
 

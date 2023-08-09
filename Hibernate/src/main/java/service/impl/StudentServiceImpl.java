@@ -12,8 +12,8 @@ public class StudentServiceImpl extends BaseServiceImpl<Student, Long, StudentRe
     }
 
     @Override
-    public Student signUp(String firstname, String lastname) {
-        Student student = new Student(firstname, lastname);
+    public Student signUp(String firstname, String lastname,long studentNumber) {
+        Student student = new Student(firstname,lastname,studentNumber);
         return ApplicationContext.getStudentService().save(student);
     }
 }

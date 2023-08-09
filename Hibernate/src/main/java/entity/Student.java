@@ -32,11 +32,17 @@ public class Student extends Person {
         this.enteringYear = enteringYear;
     }
 
+
     public Student() {
     }
 
     public Student(String firstName, String lastName) {
         super(firstName, lastName);
+    }
+
+    public Student(String firstName, String lastName, long studentNumber) {
+        super(firstName, lastName);
+        this.studentNumber = studentNumber;
     }
 
     public long getStudentNumber() {

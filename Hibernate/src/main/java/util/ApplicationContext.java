@@ -1,6 +1,5 @@
 package util;
 
-
 import jakarta.persistence.EntityManager;
 import repository.PersonRepository;
 import repository.StudentRepository;
@@ -19,7 +18,6 @@ import service.impl.TeacherServiceImpl;
 
 public class ApplicationContext {
 
-    private ApplicationContext() {}
 
     //------------person application context------------------//
 

@@ -1,10 +1,7 @@
 package entity;
 
 import entity.enums.TeacherRate;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -18,6 +15,7 @@ public class Teacher extends Person{
     protected String degree;
     @NotNull(message = "salary cannot be null")
     protected long salary;
+    @Enumerated(EnumType.STRING)
     @NotNull(message = "teacherRate cannot be null")
     protected TeacherRate teacherRate;
 
@@ -41,6 +39,11 @@ public class Teacher extends Person{
 
     public Teacher(String firstName, String lastName) {
         super(firstName, lastName);
+    }
+
+    public Teacher(String firstName, String lastName, TeacherRate teacherRate) {
+        super(firstName, lastName);
+        this.teacherRate = teacherRate;
     }
 
     public long getTeacherId() {
